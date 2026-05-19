@@ -5,152 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fikri Sudrajat | Projects</title>
     <style>
-        /* CORE STYLE - IDENTIK DI SEMUA HALAMAN */
-        :root {
-            --bg-gradient: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
-            --glass-bg: rgba(255, 255, 255, 0.75);
-            --glass-border: rgba(255, 255, 255, 0.45);
-            --primary-text: #1d1d1f;
-            --secondary-text: #6e6e73;
-            --accent: #0071e3;
-            --accent-light: rgba(0, 113, 227, 0.1);
-        }
-
+        /* [Copy seluruh blok CSS dari elemen <style> di file index.html ke sini untuk konsistensi penuh] */
+        :root { --bg-gradient: linear-gradient(135deg, #eef2f7 0%, #dbe3ee 100%); --tg-glass: rgba(255, 255, 255, 0.82); --tg-border: rgba(255, 255, 255, 0.5); --tg-text: #1c242c; --tg-subtext: #6d7885; --tg-blue: #2481cc; --tg-blue-light: rgba(36, 129, 204, 0.12); }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background: var(--bg-gradient);
-            color: var(--primary-text);
-            line-height: 1.5;
-            min-height: 100vh;
-            padding-bottom: 140px;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        .container {
-            max-width: 650px;
-            margin: 40px auto 0;
-            padding: 0 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-        }
-
-        .glass {
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            padding: 40px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
-        }
-
-        /* Komponen Judul & Teks */
-        .page-header {
-            border-bottom: 1px solid var(--glass-border);
-            padding-bottom: 16px;
-            margin-bottom: 8px;
-        }
-        .page-header h1 { font-size: 2rem; font-weight: 700; letter-spacing: -0.5px; }
-        .page-header p { color: var(--secondary-text); margin-top: 4px; font-size: 1.05rem; }
-        
-        h2 { font-size: 1.4rem; font-weight: 600; letter-spacing: -0.3px; margin-bottom: 16px; }
-        h3 { font-size: 1.2rem; font-weight: 600; margin-bottom: 6px; }
-        .glass p { color: var(--secondary-text); font-size: 0.95rem; }
-
-        /* Tombol Proyek */
-        .btn-project {
-            display: inline-flex;
-            background: var(--accent);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.85rem;
-            margin-top: 16px;
-            transition: opacity 0.2s ease;
-        }
+        body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg-gradient); color: var(--tg-text); line-height: 1.5; min-height: 100vh; padding-bottom: 150px; -webkit-font-smoothing: antialiased; }
+        .container { max-width: 650px; margin: 40px auto 0; padding: 0 20px; display: flex; flex-direction: column; gap: 24px; }
+        .glass { background: var(--tg-glass); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid var(--tg-border); border-radius: 24px; padding: 40px; box-shadow: 0 10px 35px rgba(0, 0, 0, 0.04); position: relative; overflow: hidden; }
+        .hero-banner { width: 100%; height: 180px; object-fit: cover; border-radius: 16px; margin-bottom: 24px; }
+        .page-header { border-bottom: 1px solid rgba(0,0,0,0.06); padding-bottom: 20px; margin-bottom: 8px; }
+        .title-wrapper { display: flex; align-items: center; gap: 12px; }
+        .title-icon { width: 32px; height: 32px; fill: var(--tg-blue); }
+        h1 { font-size: 2rem; font-weight: 700; letter-spacing: -0.5px; }
+        .page-header p { color: var(--tg-subtext); margin-top: 6px; font-size: 1.05rem; }
+        h2 { font-size: 1.4rem; font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+        h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 8px; color: var(--tg-text); }
+        .glass p { color: var(--tg-subtext); font-size: 0.95rem; }
+        .btn-project { display: inline-flex; background: var(--tg-blue); color: white; padding: 10px 20px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 0.85rem; margin-top: 16px; transition: opacity 0.2s ease; }
         .btn-project:hover { opacity: 0.9; }
-
-        /* REVISI MENU PILL FIX (BOTTOM FLOATING) */
-        .bottom-nav-container {
-            position: fixed;
-            bottom: 35px;
-            left: 0;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            pointer-events: none;
-        }
-        .bottom-nav {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            border: 1px solid var(--glass-border);
-            padding: 6px;
-            border-radius: 40px;
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
-            pointer-events: auto;
-            display: inline-block;
-        }
-        .bottom-nav ul { list-style: none; display: flex; gap: 6px; margin: 0; padding: 0; }
-        .bottom-nav a {
-            text-decoration: none;
-            color: var(--secondary-text);
-            font-weight: 500;
-            font-size: 0.9rem;
-            padding: 10px 24px;
-            border-radius: 30px;
-            display: block;
-            transition: all 0.2s ease;
-        }
-        .bottom-nav a:hover { color: var(--primary-text); background: rgba(0, 0, 0, 0.03); }
-        .bottom-nav a.active { color: var(--accent); background: var(--accent-light); font-weight: 600; }
-
-        @media (max-width: 480px) {
-            .bottom-nav { width: 90%; }
-            .bottom-nav ul { justify-content: space-between; }
-            .bottom-nav a { padding: 10px 0; width: 32%; text-align: center; font-size: 0.85rem; }
-            .glass { padding: 30px 24px; }
-        }
+        .bottom-nav-container { position: fixed; bottom: 30px; left: 0; width: 100%; display: flex; justify-content: center; z-index: 9999; pointer-events: none; }
+        .bottom-nav { background: rgba(255, 255, 255, 0.88); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); border: 1px solid var(--tg-border); padding: 6px 12px; border-radius: 32px; box-shadow: 0 12px 45px rgba(16, 24, 40, 0.12); pointer-events: auto; }
+        .bottom-nav ul { list-style: none; display: flex; gap: 12px; margin: 0; padding: 0; }
+        .bottom-nav a { text-decoration: none; color: var(--tg-subtext); font-weight: 500; font-size: 0.75rem; padding: 8px 18px; border-radius: 20px; display: flex; flex-direction: column; align-items: center; gap: 4px; transition: all 0.2s ease; }
+        .bottom-nav a svg { width: 22px; height: 22px; fill: var(--tg-subtext); }
+        .bottom-nav a.active { color: var(--tg-blue); font-weight: 600; }
+        .bottom-nav a.active svg { fill: var(--tg-blue); transform: scale(1.05); }
+        @media (max-width: 480px) { .bottom-nav { width: 92%; } .bottom-nav ul { justify-content: space-around; gap: 0; } .bottom-nav a { padding: 8px 0; width: 30%; } .glass { padding: 30px 20px; } }
     </style>
 </head>
 <body>
 
     <main class="container">
-        <!-- Bagian Judul Halaman -->
+        <!-- Header -->
         <header class="glass page-header">
-            <h1>Showcase Projects</h1>
-            <p>Kumpulan proyek utilitas web dan dokumentasi teknis sistem.</p>
+            <img class="hero-banner" src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?q=80&w=650&auto=format&fit=crop" alt="Projects Banner">
+            <div class="title-wrapper">
+                <svg class="title-icon" viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>
+                <h1>Showcase Projects</h1>
+            </div>
+            <p>Eksplorasi kumpulan repositori utilitas web statis dan dokumentasi sistem.</p>
         </header>
 
         <!-- Project 1 -->
         <div class="glass">
             <h3>Custom ROM Wiki</h3>
-            <p>Platform basis data terbuka yang memuat dokumentasi panduan instalasi serta repositori optimasi performa sistem Android kustom khusus ekosistem Xiaomi.</p>
+            <p>Platform basis data dokumentasi terbuka yang memuat langkah instalasi operasional sistem, kompilasi kernel modifikasi, dan parameter debloat sistem Xiaomi.</p>
             <a href="#" class="btn-project">Buka Repositori</a>
         </div>
 
         <!-- Project 2 -->
         <div class="glass">
             <h3>Battery Stats Tool</h3>
-            <p>Alat ukur berbasis web minimalis untuk menghitung efisiensi daya, memantau temperatur, serta melacak kecepatan arus pengisian daya secara presisi.</p>
+            <p>Aplikasi web ringkas untuk kalkulasi kecepatan transfer arus masuk (charging speed), grafik retensi baterai, dan analisis termal secara real-time.</p>
             <a href="#" class="btn-project">Jalankan Aplikasi</a>
         </div>
     </main>
 
-    <!-- Struktur Menu Pill Sempurna -->
+    <!-- Telegram Bottom Bar -->
     <div class="bottom-nav-container">
         <nav class="bottom-nav">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="index.html"><svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>Home</a></li>
+                <li><a href="about.html"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>About</a></li>
+                <li><a href="projects.html" class="active"><svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>Projects</a></li>
             </ul>
         </nav>
     </div>
