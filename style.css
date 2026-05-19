@@ -1,11 +1,12 @@
 /* Definisi Warna & Variabel */
 :root {
     --bg-color: #f0f2f5;
-    --glass-bg: rgba(255, 255, 255, 0.7);
-    --glass-border: rgba(255, 255, 255, 0.3);
+    --glass-bg: rgba(255, 255, 255, 0.75);
+    --glass-border: rgba(255, 255, 255, 0.4);
     --primary-text: #1d1d1f;
-    --accent: #0071e3;
     --secondary-text: #6e6e73;
+    --accent: #0071e3;
+    --accent-light: rgba(0, 113, 227, 0.1);
 }
 
 /* Reset Dasar */
@@ -21,95 +22,128 @@ body {
     color: var(--primary-text);
     line-height: 1.6;
     min-height: 100vh;
+    padding-bottom: 100px; /* Jarak agar konten tidak tertutup menu pill di bawah */
 }
 
 /* Container Global */
 .container {
-    max-width: 850px;
-    margin: 100px auto 50px;
+    max-width: 700px;
+    margin: 40px auto 0;
     padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* Jarak antar kartu konsisten */
 }
 
-/* Efek Glassmorphism */
+/* Efek Glassmorphism Konsisten */
 .glass {
     background: var(--glass-bg);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border: 1px solid var(--glass-border);
     border-radius: 24px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+    padding: 35px;
 }
 
-/* Navigasi Melayang */
-.glass-nav {
+/* MENU PILL KEKINIAN (BOTTOM FLOATING) */
+.bottom-nav {
     position: fixed;
-    top: 20px;
+    bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
-    width: 90%;
-    max-width: 600px;
-    padding: 12px 25px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    padding: 8px 10px;
+    border-radius: 40px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
     z-index: 1000;
 }
 
-.logo {
-    font-weight: 700;
-    font-size: 1.2rem;
-    color: var(--accent);
-}
-
-.glass-nav ul {
+.bottom-nav ul {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 8px;
 }
 
-.glass-nav a {
+.bottom-nav a {
     text-decoration: none;
-    color: var(--primary-text);
+    color: var(--secondary-text);
     font-weight: 500;
     font-size: 0.9rem;
-    transition: 0.3s;
-}
-
-.glass-nav a:hover, .glass-nav a.active {
-    color: var(--accent);
-}
-
-/* Tipografi & Button */
-h1, h2, h3 { margin-bottom: 15px; }
-
-.section-padding { padding: 40px; }
-
-.btn {
-    display: inline-block;
     padding: 10px 20px;
-    border-radius: 12px;
+    border-radius: 30px;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+/* State Aktif/Hover pada Menu Pill */
+.bottom-nav a:hover {
+    color: var(--primary-text);
+    background: rgba(0, 0, 0, 0.04);
+}
+
+.bottom-nav a.active {
+    color: var(--accent);
+    background: var(--accent-light);
+    font-weight: 600;
+}
+
+/* Komponen Judul & Teks */
+h1 { font-size: 2rem; font-weight: 700; margin-bottom: 8px; }
+h2 { font-size: 1.5rem; font-weight: 600; margin-bottom: 20px; }
+h3 { font-size: 1.2rem; font-weight: 600; margin-bottom: 10px; }
+p { color: var(--secondary-text); }
+
+/* Komponen Tombol */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 24px;
+    border-radius: 14px;
     text-decoration: none;
     font-weight: 600;
-    transition: 0.3s;
-    margin-top: 10px;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
 }
 
 .btn-primary { background: var(--accent); color: white; }
 .btn-primary:hover { opacity: 0.9; transform: translateY(-2px); }
+.btn-secondary { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+.btn-secondary:hover { background: var(--accent-light); transform: translateY(-2px); }
 
 /* Timeline untuk Experience/Education */
-.timeline-item {
-    border-left: 2px solid var(--accent);
-    padding-left: 20px;
-    margin-bottom: 30px;
-    position: relative;
+.timeline-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
 }
 
-.date { font-size: 0.85rem; color: var(--secondary-text); font-weight: 600; }
+.timeline-item {
+    border-left: 3px solid var(--accent);
+    padding-left: 20px;
+}
 
-/* Project Grid */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+.date { 
+    font-size: 0.8rem; 
+    color: var(--accent); 
+    font-weight: 700; 
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Badge Kategori */
+.badge-group { display: flex; gap: 8px; margin-top: 15px; justify-content: center; }
+.index-badge { background: var(--accent-light); color: var(--accent); padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+
+/* Grid Project */
+.grid { display: flex; flex-direction: column; gap: 20px; }
+
+/* Responsive untuk HP */
+@media (max-width: 480px) {
+    .bottom-nav { width: 92%; }
+    .bottom-nav a { padding: 8px 14px; font-size: 0.85rem; }
+    .container { margin: 20px auto 0; }
 }
