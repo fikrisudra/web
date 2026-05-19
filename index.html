@@ -66,6 +66,7 @@
 
         h1 { font-size: 2rem; font-weight: 700; letter-spacing: -0.5px; }
         .page-header p { color: var(--tg-subtext); margin-top: 8px; font-size: 1.05rem; }
+        
         h2 { font-size: 1.35rem; font-weight: 600; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid rgba(0,0,0,0.05); padding-bottom: 8px; }
         h2 svg { width: 22px; height: 22px; fill: var(--tg-blue); }
         .glass p { color: var(--tg-subtext); font-size: 0.98rem; text-align: justify; }
@@ -93,7 +94,7 @@
         .btn-secondary { background: white; color: var(--tg-blue); border: 1px solid rgba(36, 129, 204, 0.3); }
         .btn-secondary:hover { background: var(--tg-blue-light); transform: translateY(-1px); }
 
-        /* FIXED CAPSULE BOTTOM NAV - VERTIKAL & RAPAT */
+        /* CAPSULE NAVIGATION - Ikon di atas & Touch Target Luas */
         .bottom-nav-container {
             position: fixed;
             bottom: 30px;
@@ -107,22 +108,23 @@
             backdrop-filter: blur(30px);
             -webkit-backdrop-filter: blur(30px);
             border: 1px solid var(--tg-border);
-            padding: 5px;
-            border-radius: 30px;
+            padding: 6px;
+            border-radius: 32px;
             box-shadow: 0 12px 45px rgba(16, 24, 40, 0.08);
         }
-        .bottom-nav ul { list-style: none; display: flex; gap: 4px; margin: 0; padding: 0; }
+        .bottom-nav ul { list-style: none; display: flex; gap: 6px; margin: 0; padding: 0; }
         .bottom-nav a {
             text-decoration: none;
             color: var(--tg-subtext);
             font-weight: 600;
-            font-size: 0.72rem;
-            padding: 8px 20px;
-            border-radius: 24px;
+            font-size: 0.75rem;
+            padding: 10px 24px; /* Padding seimbang di setiap sisi */
+            border-radius: 26px;
             display: flex;
-            flex-direction: column; /* Ikon di atas teks */
+            flex-direction: column; /* Menaruh ikon tepat di atas teks */
             align-items: center;
-            gap: 4px; /* Jarak rapat antara ikon dan teks */
+            justify-content: center;
+            gap: 6px; /* Jarak aman dan proporsional */
             transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .bottom-nav a svg { width: 20px; height: 20px; fill: var(--tg-subtext); transition: fill 0.2s ease; }
@@ -136,11 +138,12 @@
         }
         .bottom-nav a.active svg { fill: #ffffff; }
 
+        /* Optimasi Responsif Layar Smartphone */
         @media (max-width: 520px) {
-            .bottom-nav-container { width: 90%; max-width: 360px; }
+            .bottom-nav-container { width: 92%; max-width: 380px; }
             .bottom-nav { width: 100%; }
-            .bottom-nav ul { justify-content: space-around; gap: 0; }
-            .bottom-nav a { padding: 8px 12px; flex: 1; }
+            .bottom-nav ul { justify-content: space-around; gap: 2px; }
+            .bottom-nav a { padding: 10px 16px; flex: 1; }
             .glass { padding: 30px 20px; }
         }
     </style>
@@ -150,7 +153,6 @@
     <main class="container">
         <!-- Header -->
         <header class="glass page-header">
-            <!-- Monochromatic SVG Cloud -->
             <img class="hero-illustration" src="https://unpkg.com/lucide-static/icons/cloud.svg" alt="Cloud Network">
             <h1>Fikri Sudrajat</h1>
             <p>Tech Enthusiast & Community Moderator</p>
