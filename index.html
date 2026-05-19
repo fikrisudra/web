@@ -49,13 +49,14 @@
             overflow: hidden;
         }
 
-        /* Ilustrasi Seamless Transparent (Fixed SVG) */
+        /* Fixed Premium Vektor SVG Illustration Style */
         .hero-illustration {
             display: block;
-            width: 150px;
-            height: 150px;
-            margin: 0 auto 20px auto;
-            filter: drop-shadow(0 12px 20px rgba(36, 129, 204, 0.15));
+            width: 100px;
+            height: 100px;
+            margin: 10px auto 25px auto;
+            filter: drop-shadow(0 8px 16px rgba(36, 129, 204, 0.2));
+            opacity: 0.85;
         }
 
         .page-header {
@@ -101,7 +102,7 @@
         .btn-secondary { background: white; color: var(--tg-blue); border: 1px solid rgba(36, 129, 204, 0.3); }
         .btn-secondary:hover { background: var(--tg-blue-light); transform: translateY(-1px); }
 
-        /* FIXED CAPSULE BOTTOM NAV (TELEGRAM STYLE) */
+        /* CAPSULE BOTTOM NAV */
         .bottom-nav-container {
             position: fixed;
             bottom: 30px;
@@ -128,26 +129,23 @@
             font-weight: 500;
             font-size: 0.8rem;
             padding: 10px 24px;
-            border-radius: 30px; /* Bentuk Kapsul Sempurna */
+            border-radius: 30px;
             display: flex;
             align-items: center;
-            gap: 8px; /* Ikon dan teks berjejer horizontal agar lebih proper */
+            gap: 8px;
             transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .bottom-nav a svg { width: 18px; height: 18px; fill: var(--tg-subtext); transition: fill 0.2s ease; }
         .bottom-nav a:hover { color: var(--tg-text); }
         .bottom-nav a:hover svg { fill: var(--tg-text); }
         
-        /* CAPSULE ACTIVE DESIGN */
         .bottom-nav a.active {
             color: #ffffff;
             font-weight: 600;
-            background: var(--tg-blue); /* Latar belakang kapsul aktif */
+            background: var(--tg-blue);
             box-shadow: 0 4px 12px rgba(36, 129, 204, 0.25);
         }
-        .bottom-nav a.active svg {
-            fill: #ffffff;
-        }
+        .bottom-nav a.active svg { fill: #ffffff; }
 
         @media (max-width: 520px) {
             .bottom-nav-container { width: 92%; max-width: 400px; }
@@ -163,8 +161,8 @@
     <main class="container">
         <!-- Header -->
         <header class="glass page-header">
-            <!-- Server/Cloud Tech SVG (Verified Link) -->
-            <img class="hero-illustration" src="https://raw.githubusercontent.com/bablubambal/All- there-Icons/master/svg-files/cloud-computing.svg" alt="Cloud Illustration">
+            <!-- 100% Fixed Cloud/Network SVG -->
+            <img class="hero-illustration" src="https://unpkg.com/lucide-static/icons/cloud-lightning.svg" alt="Cloud Network">
             <div class="title-wrapper">
                 <svg class="title-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
                 <h1>Fikri Sudrajat</h1>

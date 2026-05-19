@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fikri Sudrajat | Projects</title>
     <style>
-        /* CSS Utama Disamakan dengan index.html untuk Menjaga Performa */
         :root { --bg-gradient: linear-gradient(135deg, #eef2f7 0%, #dbe3ee 100%); --tg-glass: rgba(255, 255, 255, 0.85); --tg-border: rgba(255, 255, 255, 0.6); --tg-text: #1c242c; --tg-subtext: #5d6a78; --tg-blue: #2481cc; --tg-blue-light: rgba(36, 129, 204, 0.08); }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg-gradient); color: var(--tg-text); line-height: 1.6; min-height: 100vh; padding-bottom: 140px; -webkit-font-smoothing: antialiased; }
         .container { max-width: 650px; margin: 40px auto 0; padding: 0 20px; display: flex; flex-direction: column; gap: 24px; }
         .glass { background: var(--tg-glass); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid var(--tg-border); border-radius: 24px; padding: 40px; box-shadow: 0 10px 35px rgba(0, 0, 0, 0.03); position: relative; overflow: hidden; }
-        .hero-illustration { display: block; width: 150px; height: 150px; margin: 0 auto 20px auto; filter: drop-shadow(0 12px 20px rgba(36, 129, 204, 0.15)); }
+        
+        /* Fixed Premium Vektor SVG Illustration Style */
+        .hero-illustration { display: block; width: 100px; height: 100px; margin: 10px auto 25px auto; filter: drop-shadow(0 8px 16px rgba(36, 129, 204, 0.2)); opacity: 0.85; }
+        
         .page-header { text-align: center; border-bottom: 1px solid rgba(0,0,0,0.06); padding-bottom: 30px; }
         .title-wrapper { display: flex; align-items: center; justify-content: center; gap: 12px; }
         .title-icon { width: 32px; height: 32px; fill: var(--tg-blue); }
@@ -26,7 +28,7 @@
         .btn-project:hover { opacity: 0.9; transform: translateY(-1px); }
         .btn-project svg { width: 14px; height: 14px; fill: currentColor; }
 
-        /* BOTTOM NAV CAPSULE */
+        /* CAPSULE BOTTOM NAV */
         .bottom-nav-container { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); width: auto; display: flex; justify-content: center; z-index: 9999; }
         .bottom-nav { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); border: 1px solid var(--tg-border); padding: 6px; border-radius: 40px; box-shadow: 0 12px 45px rgba(16, 24, 40, 0.08); }
         .bottom-nav ul { list-style: none; display: flex; gap: 6px; margin: 0; padding: 0; }
@@ -42,8 +44,8 @@
     <main class="container">
         <!-- Header -->
         <header class="glass page-header">
-            <!-- Terminal/Settings Tech SVG (Verified Link) -->
-            <img class="hero-illustration" src="https://raw.githubusercontent.com/bablubambal/All-there-Icons/master/svg-files/settings.svg" alt="Projects Illustration">
+            <!-- 100% Fixed Terminal/Settings SVG -->
+            <img class="hero-illustration" src="https://unpkg.com/lucide-static/icons/terminal.svg" alt="Projects Dashboard">
             <div class="title-wrapper">
                 <svg class="title-icon" viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>
                 <h1>Showcase Projects</h1>
