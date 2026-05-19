@@ -4,8 +4,112 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fikri Sudrajat | Home</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS KRITIKAL UNTUK PERFORMA INSTAN */
+        :root {
+            --bg-gradient: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+            --glass-bg: rgba(255, 255, 255, 0.75);
+            --glass-border: rgba(255, 255, 255, 0.4);
+            --primary-text: #1d1d1f;
+            --secondary-text: #6e6e73;
+            --accent: #0071e3;
+            --accent-light: rgba(0, 113, 227, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg-gradient);
+            color: var(--primary-text);
+            line-height: 1.5;
+            min-height: 100vh;
+            padding-bottom: 120px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 650px;
+            margin: 40px auto 0;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        /* Desain Kartu Konsisten */
+        .glass {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 { font-size: 2.2rem; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 8px; }
+        h2 { font-size: 1.5rem; font-weight: 600; letter-spacing: -0.3px; margin-bottom: 16px; }
+        h3 { font-size: 1.2rem; font-weight: 600; margin-bottom: 8px; }
+        p { color: var(--secondary-text); font-size: 1rem; }
+
+        /* Badge */
+        .badge-group { display: flex; gap: 8px; margin-top: 16px; justify-content: center; }
+        .badge { background: var(--accent-light); color: var(--accent); padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+
+        /* Tombol */
+        .btn-group { display: flex; gap: 12px; margin-top: 24px; }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 24px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+        .btn-primary { background: var(--accent); color: white; }
+        .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+        .btn-secondary { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+        .btn-secondary:hover { background: var(--accent-light); transform: translateY(-1px); }
+
+        /* BOTTOM PILL NAV */
+        .bottom-nav {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            padding: 6px;
+            border-radius: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            z-index: 1000;
+        }
+        .bottom-nav ul { list-style: none; display: flex; gap: 4px; }
+        .bottom-nav a {
+            text-decoration: none;
+            color: var(--secondary-text);
+            font-weight: 500;
+            font-size: 0.9rem;
+            padding: 10px 24px;
+            border-radius: 30px;
+            display: inline-block;
+            transition: all 0.2s ease;
+        }
+        .bottom-nav a:hover { color: var(--primary-text); }
+        .bottom-nav a.active { color: var(--accent); background: var(--accent-light); font-weight: 600; }
+
+        @media (max-width: 480px) {
+            .bottom-nav { width: 90%; text-align: center; }
+            .bottom-nav ul { justify-content: space-between; }
+            .bottom-nav a { padding: 10px 0; width: 32%; text-align: center; }
+            .glass { padding: 30px 20px; }
+        }
+    </style>
 </head>
 <body>
 
@@ -15,23 +119,23 @@
             <h1>Fikri Sudrajat</h1>
             <p>Tech Enthusiast & Community Moderator</p>
             <div class="badge-group">
-                <span class="index-badge">Xiaomi Expert</span>
-                <span class="index-badge">Web UI/UX</span>
+                <span class="badge">Xiaomi Expert</span>
+                <span class="badge">Web UI/UX</span>
             </div>
         </section>
 
         <!-- Contact Card -->
         <section class="glass">
             <h2>Get In Touch</h2>
-            <p style="margin-bottom: 20px;">Tertarik untuk berkolaborasi atau punya pertanyaan seputar kustomisasi Android? Hubungi saya kapan saja.</p>
-            <div style="display: flex; gap: 12px;">
+            <p>Tertarik untuk berkolaborasi atau punya pertanyaan seputar kustomisasi Android? Hubungi saya kapan saja melalui kontak di bawah.</p>
+            <div class="btn-group">
                 <a href="mailto:email@anda.com" class="btn btn-primary">Kirim Email</a>
                 <a href="#" class="btn btn-secondary">Telegram</a>
             </div>
         </section>
     </main>
 
-    <!-- Floating Pill Menu -->
+    <!-- Pill Menu -->
     <nav class="bottom-nav">
         <ul>
             <li><a href="index.html" class="active">Home</a></li>
