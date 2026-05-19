@@ -12,7 +12,7 @@
             --tg-border: rgba(255, 255, 255, 0.5);
             --tg-text: #1c242c;
             --tg-subtext: #6d7885;
-            --tg-blue: #2481cc; /* Ciri khas warna utama Telegram */
+            --tg-blue: #2481cc;
             --tg-blue-light: rgba(36, 129, 204, 0.12);
         }
 
@@ -24,7 +24,7 @@
             color: var(--tg-text);
             line-height: 1.5;
             min-height: 100vh;
-            padding-bottom: 150px;
+            padding-bottom: 140px;
             -webkit-font-smoothing: antialiased;
         }
 
@@ -49,39 +49,46 @@
             overflow: hidden;
         }
 
-        /* Ilustrasi Header Gambar */
-        .hero-banner {
-            width: 100%;
+        /* Ilustrasi Seamless Transparent */
+        .hero-illustration {
+            display: block;
+            width: 180px;
             height: 180px;
-            object-fit: cover;
-            border-radius: 16px;
-            margin-bottom: 24px;
-            background: #cbd5e1;
+            object-fit: contain;
+            margin: 0 auto 20px auto;
+            filter: drop-shadow(0 8px 16px rgba(36, 129, 204, 0.15));
         }
 
         .page-header {
+            text-align: center;
             border-bottom: 1px solid rgba(0,0,0,0.06);
-            padding-bottom: 20px;
-            margin-bottom: 8px;
+            padding-bottom: 30px;
         }
         
-        .title-wrapper { display: flex; align-items: center; gap: 12px; }
+        .title-wrapper { 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            gap: 12px; 
+        }
         .title-icon { width: 32px; height: 32px; fill: var(--tg-blue); }
 
         h1 { font-size: 2rem; font-weight: 700; letter-spacing: -0.5px; }
-        .page-header p { color: var(--tg-subtext); margin-top: 6px; font-size: 1.05rem; }
+        .page-header p { color: var(--tg-subtext); margin-top: 8px; font-size: 1.05rem; }
         h2 { font-size: 1.4rem; font-weight: 600; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
         h2 svg { width: 22px; height: 22px; fill: var(--tg-blue); }
         .glass p { color: var(--tg-subtext); font-size: 0.98rem; }
 
-        .badge-group { display: flex; gap: 8px; margin-top: 14px; }
+        .badge-group { display: flex; justify-content: center; gap: 8px; margin-top: 16px; }
         .badge { background: var(--tg-blue-light); color: var(--tg-blue); padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
 
         .btn-group { display: flex; gap: 12px; margin-top: 24px; }
         .btn {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 8px;
+            flex: 1;
             padding: 12px 24px;
             border-radius: 14px;
             text-decoration: none;
@@ -95,49 +102,49 @@
         .btn-secondary { background: white; color: var(--tg-blue); border: 1px solid rgba(36, 129, 204, 0.3); }
         .btn-secondary:hover { background: var(--tg-blue-light); transform: translateY(-1px); }
 
-        /* TELEGRAM BOTTOM NAV STYLE */
+        /* FIXED CENTERED BOTTOM NAV */
         .bottom-nav-container {
             position: fixed;
             bottom: 30px;
-            left: 0;
-            width: 100%;
+            left: 50%;
+            transform: translateX(-50%); /* Kunci posisi horizontal center sempurna */
+            width: auto;
+            min-width: 280px;
             display: flex;
             justify-content: center;
             z-index: 9999;
-            pointer-events: none;
         }
         .bottom-nav {
-            background: rgba(255, 255, 255, 0.88);
+            background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(30px);
             -webkit-backdrop-filter: blur(30px);
             border: 1px solid var(--tg-border);
-            padding: 6px 12px;
+            padding: 6px 8px;
             border-radius: 32px;
-            box-shadow: 0 12px 45px rgba(16, 24, 40, 0.12);
-            pointer-events: auto;
+            box-shadow: 0 12px 45px rgba(16, 24, 40, 0.08);
         }
-        .bottom-nav ul { list-style: none; display: flex; gap: 12px; margin: 0; padding: 0; }
+        .bottom-nav ul { list-style: none; display: flex; gap: 4px; margin: 0; padding: 0; }
         .bottom-nav a {
             text-decoration: none;
             color: var(--tg-subtext);
             font-weight: 500;
             font-size: 0.75rem;
-            padding: 8px 18px;
-            border-radius: 20px;
+            padding: 8px 20px;
+            border-radius: 24px;
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 4px;
-            transition: all 0.2s ease;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .bottom-nav a svg { width: 22px; height: 22px; fill: var(--tg-subtext); transition: fill 0.2s ease; }
+        .bottom-nav a svg { width: 22px; height: 22px; fill: var(--tg-subtext); transition: fill 0.2s ease, transform 0.2s ease; }
         .bottom-nav a:hover { color: var(--tg-text); }
         .bottom-nav a:hover svg { fill: var(--tg-text); }
         
-        /* Active Tab Ala Telegram Terbaru */
         .bottom-nav a.active {
             color: var(--tg-blue);
             font-weight: 600;
+            background: rgba(36, 129, 204, 0.08); /* Highlight samar ala Telegram modern */
         }
         .bottom-nav a.active svg {
             fill: var(--tg-blue);
@@ -145,9 +152,10 @@
         }
 
         @media (max-width: 480px) {
-            .bottom-nav { width: 92%; }
-            .bottom-nav ul { justify-content: space-around; gap: 0; }
-            .bottom-nav a { padding: 8px 0; width: 30%; }
+            .bottom-nav-container { width: 90%; max-width: 360px; }
+            .bottom-nav { width: 100%; }
+            .bottom-nav ul { justify-content: space-between; }
+            .bottom-nav a { padding: 8px 16px; flex: 1; }
             .glass { padding: 30px 20px; }
         }
     </style>
@@ -157,7 +165,8 @@
     <main class="container">
         <!-- Header -->
         <header class="glass page-header">
-            <img class="hero-banner" src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=650&auto=format&fit=crop" alt="Banner">
+            <!-- PNG Transparan Bertema Cloud/Kustomisasi/Tech -->
+            <img class="hero-illustration" src="https://cdni.iconscout.com/illustration/premium/thumb/cloud-computing-7264879-5936855.png" alt="Illustration">
             <div class="title-wrapper">
                 <svg class="title-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
                 <h1>Fikri Sudrajat</h1>
@@ -179,7 +188,7 @@
             <div class="btn-group">
                 <a href="mailto:email@anda.com" class="btn btn-primary">
                     <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                    Kirim Email
+                    Email
                 </a>
                 <a href="#" class="btn btn-secondary">
                     <svg viewBox="0 0 24 24"><path d="M9.78 18.65l.28-4.28 7.68-6.92c.34-.31-.07-.48-.52-.19L7.62 12.3 3.47 11c-.9-.28-.91-.9.19-1.33l16.22-6.25c.75-.28 1.41.17 1.14 1.25l-2.76 13c-.2 1-.8 1.24-1.63.78l-4.21-3.1-2.03 1.95c-.23.23-.42.42-.87.42z"/></svg>
@@ -189,28 +198,13 @@
         </section>
     </main>
 
-    <!-- Telegram Bottom Bar -->
+    <!-- Centered Telegram Bottom Bar -->
     <div class="bottom-nav-container">
         <nav class="bottom-nav">
             <ul>
-                <li>
-                    <a href="index.html" class="active">
-                        <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
-                        Home
-                    </a>
-                </li>
-                <li>
-                    <a href="about.html">
-                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-                        About
-                    </a>
-                </li>
-                <li>
-                    <a href="projects.html">
-                        <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>
-                        Projects
-                    </a>
-                </li>
+                <li><a href="index.html" class="active"><svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>Home</a></li>
+                <li><a href="about.html"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>About</a></li>
+                <li><a href="projects.html"><svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>Projects</a></li>
             </ul>
         </nav>
     </div>

@@ -4,20 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fikri Sudrajat | About</title>
-    <!-- CSS Internal disamakan persis untuk menjamin kecepatan load Chrome -->
     <style>
-        /* [Copy seluruh blok CSS dari elemen <style> di file index.html ke sini untuk konsistensi penuh] */
+        /* Salin persis CSS dari index.html untuk konsistensi, modifikasi minor untuk timeline */
         :root { --bg-gradient: linear-gradient(135deg, #eef2f7 0%, #dbe3ee 100%); --tg-glass: rgba(255, 255, 255, 0.82); --tg-border: rgba(255, 255, 255, 0.5); --tg-text: #1c242c; --tg-subtext: #6d7885; --tg-blue: #2481cc; --tg-blue-light: rgba(36, 129, 204, 0.12); }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg-gradient); color: var(--tg-text); line-height: 1.5; min-height: 100vh; padding-bottom: 150px; -webkit-font-smoothing: antialiased; }
+        body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg-gradient); color: var(--tg-text); line-height: 1.5; min-height: 100vh; padding-bottom: 140px; -webkit-font-smoothing: antialiased; }
         .container { max-width: 650px; margin: 40px auto 0; padding: 0 20px; display: flex; flex-direction: column; gap: 24px; }
         .glass { background: var(--tg-glass); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid var(--tg-border); border-radius: 24px; padding: 40px; box-shadow: 0 10px 35px rgba(0, 0, 0, 0.04); position: relative; overflow: hidden; }
-        .hero-banner { width: 100%; height: 180px; object-fit: cover; border-radius: 16px; margin-bottom: 24px; }
-        .page-header { border-bottom: 1px solid rgba(0,0,0,0.06); padding-bottom: 20px; margin-bottom: 8px; }
-        .title-wrapper { display: flex; align-items: center; gap: 12px; }
+        .hero-illustration { display: block; width: 180px; height: 180px; object-fit: contain; margin: 0 auto 20px auto; filter: drop-shadow(0 8px 16px rgba(36, 129, 204, 0.15)); }
+        .page-header { text-align: center; border-bottom: 1px solid rgba(0,0,0,0.06); padding-bottom: 30px; }
+        .title-wrapper { display: flex; align-items: center; justify-content: center; gap: 12px; }
         .title-icon { width: 32px; height: 32px; fill: var(--tg-blue); }
         h1 { font-size: 2rem; font-weight: 700; letter-spacing: -0.5px; }
-        .page-header p { color: var(--tg-subtext); margin-top: 6px; font-size: 1.05rem; }
+        .page-header p { color: var(--tg-subtext); margin-top: 8px; font-size: 1.05rem; }
         h2 { font-size: 1.4rem; font-weight: 600; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
         h2 svg { width: 22px; height: 22px; fill: var(--tg-blue); }
         h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 4px; }
@@ -25,14 +24,14 @@
         .timeline { display: flex; flex-direction: column; gap: 24px; }
         .timeline-item { border-left: 3px solid var(--tg-blue); padding-left: 16px; }
         .date { font-size: 0.8rem; color: var(--tg-blue); font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 4px; display: block; }
-        .bottom-nav-container { position: fixed; bottom: 30px; left: 0; width: 100%; display: flex; justify-content: center; z-index: 9999; pointer-events: none; }
-        .bottom-nav { background: rgba(255, 255, 255, 0.88); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); border: 1px solid var(--tg-border); padding: 6px 12px; border-radius: 32px; box-shadow: 0 12px 45px rgba(16, 24, 40, 0.12); pointer-events: auto; }
-        .bottom-nav ul { list-style: none; display: flex; gap: 12px; margin: 0; padding: 0; }
-        .bottom-nav a { text-decoration: none; color: var(--tg-subtext); font-weight: 500; font-size: 0.75rem; padding: 8px 18px; border-radius: 20px; display: flex; flex-direction: column; align-items: center; gap: 4px; transition: all 0.2s ease; }
+        .bottom-nav-container { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); width: auto; min-width: 280px; display: flex; justify-content: center; z-index: 9999; }
+        .bottom-nav { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); border: 1px solid var(--tg-border); padding: 6px 8px; border-radius: 32px; box-shadow: 0 12px 45px rgba(16, 24, 40, 0.08); }
+        .bottom-nav ul { list-style: none; display: flex; gap: 4px; margin: 0; padding: 0; }
+        .bottom-nav a { text-decoration: none; color: var(--tg-subtext); font-weight: 500; font-size: 0.75rem; padding: 8px 20px; border-radius: 24px; display: flex; flex-direction: column; align-items: center; gap: 4px; transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); }
         .bottom-nav a svg { width: 22px; height: 22px; fill: var(--tg-subtext); }
-        .bottom-nav a.active { color: var(--tg-blue); font-weight: 600; }
+        .bottom-nav a.active { color: var(--tg-blue); font-weight: 600; background: rgba(36, 129, 204, 0.08); }
         .bottom-nav a.active svg { fill: var(--tg-blue); transform: scale(1.05); }
-        @media (max-width: 480px) { .bottom-nav { width: 92%; } .bottom-nav ul { justify-content: space-around; gap: 0; } .bottom-nav a { padding: 8px 0; width: 30%; } .glass { padding: 30px 20px; } }
+        @media (max-width: 480px) { .bottom-nav-container { width: 90%; max-width: 360px; } .bottom-nav { width: 100%; } .bottom-nav ul { justify-content: space-between; } .bottom-nav a { padding: 8px 16px; flex: 1; } .glass { padding: 30px 20px; } }
     </style>
 </head>
 <body>
@@ -40,7 +39,8 @@
     <main class="container">
         <!-- Header -->
         <header class="glass page-header">
-            <img class="hero-banner" src="https://images.unsplash.com/photo-1629654297299-c8506221ca97?q=80&w=650&auto=format&fit=crop" alt="Profile Banner">
+            <!-- PNG Transparan Bertema Resume/Data/Karier -->
+            <img class="hero-illustration" src="https://cdni.iconscout.com/illustration/premium/thumb/male-resume-analyst-working-on-cv-profile-7613143-6161406.png" alt="Profile Illustration">
             <div class="title-wrapper">
                 <svg class="title-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
                 <h1>About Profile</h1>
@@ -63,28 +63,13 @@
                 <div class="timeline-item">
                     <span class="date">2021 - 2023</span>
                     <h3>Freelance Web Developer</h3>
-                    <p>Mengembangkan arsitektur web statis siap pakai yang berfokus penuh pada optimasi kecepatan pemuatan halaman di Chrome desktop & mobile.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Education -->
-        <section class="glass">
-            <h2>
-                <svg viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91v6.51h2V9L12 3z"/></svg>
-                Education
-            </h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <span class="date">2017 - 2021</span>
-                    <h3>Sarjana Teknik Informatika</h3>
-                    <p>Mengkaji sistem komputasi terdistribusi, pengolahan basis data relasional, dan optimasi efisiensi skrip tingkat rendah.</p>
+                    <p>Mengembangkan arsitektur web statis siap pakai yang berfokus penuh pada optimasi kecepatan pemuatan halaman.</p>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Telegram Bottom Bar -->
+    <!-- Centered Bottom Nav -->
     <div class="bottom-nav-container">
         <nav class="bottom-nav">
             <ul>
