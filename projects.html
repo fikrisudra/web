@@ -11,12 +11,10 @@
         .container { max-width: 650px; margin: 40px auto 0; padding: 0 20px; display: flex; flex-direction: column; gap: 24px; }
         .glass { background: var(--tg-glass); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid var(--tg-border); border-radius: 24px; padding: 40px; box-shadow: 0 10px 35px rgba(0, 0, 0, 0.03); position: relative; overflow: hidden; }
         
-        /* Fixed Premium Vektor SVG Illustration Style */
-        .hero-illustration { display: block; width: 100px; height: 100px; margin: 10px auto 25px auto; filter: drop-shadow(0 8px 16px rgba(36, 129, 204, 0.2)); opacity: 0.85; }
+        /* Monochromatic Illustration (Satu Tema Warna) */
+        .hero-illustration { display: block; width: 80px; height: 80px; margin: 10px auto 20px auto; opacity: 0.6; }
         
         .page-header { text-align: center; border-bottom: 1px solid rgba(0,0,0,0.06); padding-bottom: 30px; }
-        .title-wrapper { display: flex; align-items: center; justify-content: center; gap: 12px; }
-        .title-icon { width: 32px; height: 32px; fill: var(--tg-blue); }
         h1 { font-size: 2rem; font-weight: 700; letter-spacing: -0.5px; }
         .page-header p { color: var(--tg-subtext); margin-top: 8px; font-size: 1.05rem; }
         h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 8px; color: var(--tg-text); display: flex; align-items: center; gap: 8px; }
@@ -28,15 +26,15 @@
         .btn-project:hover { opacity: 0.9; transform: translateY(-1px); }
         .btn-project svg { width: 14px; height: 14px; fill: currentColor; }
 
-        /* CAPSULE BOTTOM NAV */
-        .bottom-nav-container { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); width: auto; display: flex; justify-content: center; z-index: 9999; }
-        .bottom-nav { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); border: 1px solid var(--tg-border); padding: 6px; border-radius: 40px; box-shadow: 0 12px 45px rgba(16, 24, 40, 0.08); }
-        .bottom-nav ul { list-style: none; display: flex; gap: 6px; margin: 0; padding: 0; }
-        .bottom-nav a { text-decoration: none; color: var(--tg-subtext); font-weight: 500; font-size: 0.8rem; padding: 10px 24px; border-radius: 30px; display: flex; align-items: center; gap: 8px; transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); }
-        .bottom-nav a svg { width: 18px; height: 18px; fill: var(--tg-subtext); }
-        .bottom-nav a.active { color: #ffffff; font-weight: 600; background: var(--tg-blue); box-shadow: 0 4px 12px rgba(36, 129, 204, 0.25); }
+        /* FIXED CAPSULE BOTTOM NAV - VERTIKAL & RAPAT */
+        .bottom-nav-container { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); width: auto; z-index: 9999; }
+        .bottom-nav { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); border: 1px solid var(--tg-border); padding: 5px; border-radius: 30px; box-shadow: 0 12px 45px rgba(16, 24, 40, 0.08); }
+        .bottom-nav ul { list-style: none; display: flex; gap: 4px; margin: 0; padding: 0; }
+        .bottom-nav a { text-decoration: none; color: var(--tg-subtext); font-weight: 600; font-size: 0.72rem; padding: 8px 20px; border-radius: 24px; display: flex; flex-direction: column; align-items: center; gap: 4px; transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
+        .bottom-nav a svg { width: 20px; height: 20px; fill: var(--tg-subtext); }
+        .bottom-nav a.active { color: #ffffff; background: var(--tg-blue); box-shadow: 0 4px 10px rgba(36, 129, 204, 0.2); }
         .bottom-nav a.active svg { fill: #ffffff; }
-        @media (max-width: 520px) { .bottom-nav-container { width: 92%; max-width: 400px; } .bottom-nav { width: 100%; } .bottom-nav ul { justify-content: space-between; gap: 0; } .bottom-nav a { padding: 10px 14px; font-size: 0.75rem; gap: 4px; flex: 1; justify-content: center; } .glass { padding: 30px 20px; } }
+        @media (max-width: 520px) { .bottom-nav-container { width: 90%; max-width: 360px; } .bottom-nav { width: 100%; } .bottom-nav ul { justify-content: space-around; gap: 0; } .bottom-nav a { padding: 8px 12px; flex: 1; } .glass { padding: 30px 20px; } }
     </style>
 </head>
 <body>
@@ -44,19 +42,16 @@
     <main class="container">
         <!-- Header -->
         <header class="glass page-header">
-            <!-- 100% Fixed Terminal/Settings SVG -->
-            <img class="hero-illustration" src="https://unpkg.com/lucide-static/icons/terminal.svg" alt="Projects Dashboard">
-            <div class="title-wrapper">
-                <svg class="title-icon" viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>
-                <h1>Showcase Projects</h1>
-            </div>
+            <!-- Monochromatic SVG Folder -->
+            <img class="hero-illustration" src="https://unpkg.com/lucide-static/icons/folder-git-2.svg" alt="Projects Dashboard">
+            <h1>Showcase Projects</h1>
             <p>Eksplorasi kumpulan repositori utilitas web statis dan dokumentasi sistem.</p>
         </header>
 
         <!-- Project 1 -->
         <div class="glass">
             <h3>
-                <svg viewBox="0 0 24 24" style="width:20px; height:20px; fill:var(--tg-blue);"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
                 Custom ROM Wiki
             </h3>
             <p>Platform basis data dokumentasi terbuka yang memuat langkah instalasi operasional sistem, kompilasi kernel modifikasi, dan parameter debloat sistem Xiaomi.</p>
@@ -67,7 +62,7 @@
         </div>
     </main>
 
-    <!-- Centered Bottom Nav Kapsul -->
+    <!-- Bottom Nav -->
     <div class="bottom-nav-container">
         <nav class="bottom-nav">
             <ul>

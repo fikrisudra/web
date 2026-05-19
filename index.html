@@ -49,14 +49,13 @@
             overflow: hidden;
         }
 
-        /* Fixed Premium Vektor SVG Illustration Style */
+        /* Monochromatic Illustration (Satu Tema Warna) */
         .hero-illustration {
             display: block;
-            width: 100px;
-            height: 100px;
-            margin: 10px auto 25px auto;
-            filter: drop-shadow(0 8px 16px rgba(36, 129, 204, 0.2));
-            opacity: 0.85;
+            width: 80px;
+            height: 80px;
+            margin: 10px auto 20px auto;
+            opacity: 0.6;
         }
 
         .page-header {
@@ -64,14 +63,6 @@
             border-bottom: 1px solid rgba(0,0,0,0.06);
             padding-bottom: 30px;
         }
-        
-        .title-wrapper { 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            gap: 12px; 
-        }
-        .title-icon { width: 32px; height: 32px; fill: var(--tg-blue); }
 
         h1 { font-size: 2rem; font-weight: 700; letter-spacing: -0.5px; }
         .page-header p { color: var(--tg-subtext); margin-top: 8px; font-size: 1.05rem; }
@@ -102,15 +93,13 @@
         .btn-secondary { background: white; color: var(--tg-blue); border: 1px solid rgba(36, 129, 204, 0.3); }
         .btn-secondary:hover { background: var(--tg-blue-light); transform: translateY(-1px); }
 
-        /* CAPSULE BOTTOM NAV */
+        /* FIXED CAPSULE BOTTOM NAV - VERTIKAL & RAPAT */
         .bottom-nav-container {
             position: fixed;
             bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
             width: auto;
-            display: flex;
-            justify-content: center;
             z-index: 9999;
         }
         .bottom-nav {
@@ -118,40 +107,40 @@
             backdrop-filter: blur(30px);
             -webkit-backdrop-filter: blur(30px);
             border: 1px solid var(--tg-border);
-            padding: 6px;
-            border-radius: 40px;
+            padding: 5px;
+            border-radius: 30px;
             box-shadow: 0 12px 45px rgba(16, 24, 40, 0.08);
         }
-        .bottom-nav ul { list-style: none; display: flex; gap: 6px; margin: 0; padding: 0; }
+        .bottom-nav ul { list-style: none; display: flex; gap: 4px; margin: 0; padding: 0; }
         .bottom-nav a {
             text-decoration: none;
             color: var(--tg-subtext);
-            font-weight: 500;
-            font-size: 0.8rem;
-            padding: 10px 24px;
-            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.72rem;
+            padding: 8px 20px;
+            border-radius: 24px;
             display: flex;
+            flex-direction: column; /* Ikon di atas teks */
             align-items: center;
-            gap: 8px;
-            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            gap: 4px; /* Jarak rapat antara ikon dan teks */
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .bottom-nav a svg { width: 18px; height: 18px; fill: var(--tg-subtext); transition: fill 0.2s ease; }
+        .bottom-nav a svg { width: 20px; height: 20px; fill: var(--tg-subtext); transition: fill 0.2s ease; }
         .bottom-nav a:hover { color: var(--tg-text); }
         .bottom-nav a:hover svg { fill: var(--tg-text); }
         
         .bottom-nav a.active {
             color: #ffffff;
-            font-weight: 600;
             background: var(--tg-blue);
-            box-shadow: 0 4px 12px rgba(36, 129, 204, 0.25);
+            box-shadow: 0 4px 10px rgba(36, 129, 204, 0.2);
         }
         .bottom-nav a.active svg { fill: #ffffff; }
 
         @media (max-width: 520px) {
-            .bottom-nav-container { width: 92%; max-width: 400px; }
+            .bottom-nav-container { width: 90%; max-width: 360px; }
             .bottom-nav { width: 100%; }
-            .bottom-nav ul { justify-content: space-between; gap: 0; }
-            .bottom-nav a { padding: 10px 14px; font-size: 0.75rem; gap: 4px; flex: 1; justify-content: center; }
+            .bottom-nav ul { justify-content: space-around; gap: 0; }
+            .bottom-nav a { padding: 8px 12px; flex: 1; }
             .glass { padding: 30px 20px; }
         }
     </style>
@@ -161,12 +150,9 @@
     <main class="container">
         <!-- Header -->
         <header class="glass page-header">
-            <!-- 100% Fixed Cloud/Network SVG -->
-            <img class="hero-illustration" src="https://unpkg.com/lucide-static/icons/cloud-lightning.svg" alt="Cloud Network">
-            <div class="title-wrapper">
-                <svg class="title-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-                <h1>Fikri Sudrajat</h1>
-            </div>
+            <!-- Monochromatic SVG Cloud -->
+            <img class="hero-illustration" src="https://unpkg.com/lucide-static/icons/cloud.svg" alt="Cloud Network">
+            <h1>Fikri Sudrajat</h1>
             <p>Tech Enthusiast & Community Moderator</p>
             <div class="badge-group">
                 <span class="badge">Xiaomi Expert</span>
@@ -194,7 +180,7 @@
         </section>
     </main>
 
-    <!-- Centered Bottom Nav Kapsul -->
+    <!-- Bottom Nav -->
     <div class="bottom-nav-container">
         <nav class="bottom-nav">
             <ul>
